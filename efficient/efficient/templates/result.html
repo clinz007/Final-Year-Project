@@ -1,0 +1,38 @@
+{% block content %}
+{% load static %}
+
+{% include 'header.html' %}
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <!-- Hero Start -->
+    <div class="container-fluid bg-primary p-5 hero-header mb-5">
+        <div class="row py-5">
+            <div class="col-12 text-center">
+                <h1 class="display-1 text-white animated zoomIn">Wage Predicted</h1>
+             
+            </div>
+        </div>
+    </div>
+    <!-- Hero End -->
+
+
+    <!-- Contact Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+                <h5 class="text-primary text-uppercase" style="letter-spacing: 5px;">Average Wage Predicted Using XGBoost</h5>
+            </div>
+            <div class="row g-12">
+                <div class="col-lg-12 wow slideInUp" data-wow-delay="0.3s">
+                    <div class="bg-light rounded p-5">
+                        <center><h2>Rs. {{res}}</h2></center>
+                    </div>
+                </div>
+      
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+{% include 'footer.html' %}
+
+{% endblock %}

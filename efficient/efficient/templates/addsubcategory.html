@@ -1,0 +1,58 @@
+{% block content %}
+{% load static %}
+
+{% include 'header.html' %}
+
+    <!-- Hero Start -->
+    <div class="container-fluid bg-primary p-5 hero-header mb-5">
+        <div class="row py-5">
+            <div class="col-12 text-center">
+                <h1 class="display-1 text-white animated zoomIn">Add Sub-Category</h1>
+             
+            </div>
+        </div>
+    </div>
+    <!-- Hero End -->
+
+
+    <!-- Contact Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+                <h5 class="text-primary text-uppercase" style="letter-spacing: 5px;">Add Sub-Category</h5>
+            </div>
+            <div class="row g-12">
+                <div class="col-lg-12 wow slideInUp" data-wow-delay="0.3s">
+                    <div class="bg-light rounded p-5">
+                        <form action="addsubcat" method="post">
+                            {% csrf_token %}
+                            <div class="row g-3">
+                                <div class="col-md-5 mb-3">
+                                    <select class="form-control  border-0 px-4" id="country" required name="cat">
+                                    <option  data-display="Select">Select Category</option>
+                                    {% for i in result %}
+                                    <option  >{{i.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                </div>
+                                <div class="col-12">
+                                    <input type="text" class="form-control border-0 px-4" placeholder="Sub-Category Name" name="subcat" required  style="height: 55px;">
+                                </div>
+                                
+                                
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" name="submit" type="submit">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+      
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+{% include 'footer.html' %}
+
+{% endblock %}

@@ -1,0 +1,84 @@
+{% block content %}
+{% load static %}
+
+{% include 'header.html' %}
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <!-- Hero Start -->
+    <div class="container-fluid bg-primary p-5 hero-header mb-5">
+        <div class="row py-5">
+            <div class="col-12 text-center">
+                <h1 class="display-1 text-white animated zoomIn">Report</h1>
+             
+            </div>
+        </div>
+    </div>
+    <!-- Hero End -->
+
+
+    <!-- Contact Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+                <h5 class="text-primary text-uppercase" style="letter-spacing: 5px;">Work Report</h5>
+            </div>
+            <div class="row g-12">
+                <div class="col-lg-12 wow slideInUp" data-wow-delay="0.3s">
+                    <div class="bg-light rounded p-5">
+                        <form action="addreports" method="post">
+                            {% csrf_token %}
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <input type="text" class="form-control border-0 px-4" hidden value="{{result.id}}" name="bid" data-error="Please enter your name" style="height: 55px;">
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" class="form-control border-0 px-4" hidden value="{{result.issue}}" name="issue" data-error="Please enter your name" style="height: 55px;">
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" class="form-control border-0 px-4" hidden value="{{result.uname}}" name="uname" data-error="Please enter your name" style="height: 55px;">
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" class="form-control border-0 px-4" hidden value="{{result.typee}}" name="typee" data-error="Please enter your name" style="height: 55px;">
+                                </div>
+                                <!-- <div class="col-6">
+                                    <input type="text" class="form-control border-0 px-4" hidden value="{{result.wid}}" name="wid" data-error="Please enter your name" style="height: 55px;">
+                                </div> -->
+                                <!-- <div class="col-6">
+                                    <input type="text" class="form-control border-0 px-4" hidden name="uname" required data-error="Please enter your name" style="height: 55px;">
+                                </div> -->
+                                <div class="col-12">
+                                    <input type="text" class="form-control border-0 px-4" placeholder="Status" name="status" required data-error="Please enter type" style="height: 55px;">
+                                </div>
+                                <label for="">Completed Date</label>
+                                <div class="col-6">
+                                    <input type="date" id="date_picker" class="form-control border-0 px-4" placeholder="Completed Date" name="date" required data-error="Please enter type" style="height: 55px;">
+                                </div>
+                                <script language="javascript">
+                                    var today = new Date();
+                                    var dd = String(today.getDate()).padStart(2, '0');
+                                    var mm = String(today.getMonth() + 1).padStart(2, '0');
+                                    var yyyy = today.getFullYear();
+                            
+                                    today = yyyy + '-' + mm + '-' + dd;
+                                    $('#date_picker').attr('min',today);
+                                </script>
+                                <div class="col-12">
+                                    <input type="text" class="form-control border-0 px-4" placeholder="" readonly name="amount" value="{{result.rate}}" required data-error="Please enter type" style="height: 55px;">
+                                </div>
+                              
+                              
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" name="submit" type="submit">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+      
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+{% include 'footer.html' %}
+
+{% endblock %}

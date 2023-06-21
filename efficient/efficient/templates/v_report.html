@@ -1,0 +1,67 @@
+{% block content %}
+{% load static %}
+
+{% include 'header.html' %}
+
+<!-- Start Wishlist  -->
+<div class="wishlist-box-main">
+    <div class="container"><br>
+        <h3> Work Status & Payment</h3><br>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-main table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Booking Id</th>
+                                <th>Date </th>
+                                <th>Work Type</th>
+                                <th>Issue</th>
+                                
+                                <th>Status</th>
+                                <th>Amount</th>
+                                
+                                <th>Payment</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                              {% for i in result %}
+                                <td class="name-pr">{{i.bid}}</td>
+                                <td class="price-pr">{{i.date}}</td>
+                                <td class="quantity-box">{{i.typee}}</td>
+                                <td class="quantity-box">{{i.issue}}</td>
+                                
+                                <td class="quantity-box">{{i.status}}</td>
+                                <td class="quantity-box">{{i.amount}}</td>
+                              
+                                <td class="add-pr">
+                                    <a  href="{% url 'pay' id=i.id %}">Pay</a>
+                                </td>
+                              
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+{% include 'footer.html' %}
+
+{% endblock %}
